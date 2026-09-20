@@ -1,0 +1,47 @@
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+.pytest_cache/
+
+# Node
+node_modules/
+dist/
+build/
+.npm/
+
+# Secrets & Config
+.env
+.env.local
+.env.*
+
+# Model Weights
+*.onnx
+*.bin
+*.xml
+*.pt
+weights/
+services/inference-worker/weights/
+
+# Video Test Data
+data/sample_videos/*
+!data/sample_videos/.gitkeep
+
+# Build Artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Cache Directories
+.cache/
+.mypy_cache/
+.ruff_cache/
+
+# IDEs and OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+.opencode/
