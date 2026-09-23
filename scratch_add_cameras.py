@@ -42,10 +42,33 @@ async def add_cameras():
             enabled=True
         )
         
+        cam3 = Camera(
+            id="cam_3",
+            name="cam 3",
+            source_type="file",
+            source_uri="/Users/jawwadahmad/IBVAP/data/sample_videos/16647865_2160_3840_30fps.mp4",
+            location="Test Environment",
+            zone="zone-test",
+            priority=3,
+            enabled=True
+        )
+        cam4 = Camera(
+            id="cam_4",
+            name="cam 4",
+            source_type="file",
+            source_uri="/Users/jawwadahmad/IBVAP/data/sample_videos/4118497-hd_1920_1080_24fps.mp4",
+            location="Test Environment",
+            zone="zone-test",
+            priority=4,
+            enabled=True
+        )
+        
         await session.merge(cam1)
         await session.merge(cam2)
+        await session.merge(cam3)
+        await session.merge(cam4)
         await session.commit()
-        print("Successfully added VIRAT sample cameras to the database!")
+        print("Successfully added all 4 sample cameras to the database!")
 
 if __name__ == "__main__":
     asyncio.run(add_cameras())

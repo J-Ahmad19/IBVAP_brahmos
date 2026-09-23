@@ -12,6 +12,14 @@ export const TopTelemetryBar: React.FC = () => {
     return () => clearInterval(timer);
   }, []);
 
+  const [cameraCount, setCameraCount] = useState(0);
+  useEffect(() => {
+    fetch('/api/v1/cameras/')
+      .then(res => res.json())
+      .then(data => setCameraCount(data.length))
+      .catch(err => console.error(err));
+  }, []);
+
   return (
     <header className="telemetry-bar">
       <div className="telemetry-group">
@@ -21,7 +29,7 @@ export const TopTelemetryBar: React.FC = () => {
         </div>
         <div className="telemetry-item">
           <span className="label">ACTIVE_CAMS</span>
-          <span className="value">4/4</span>
+          <span className="value">{cameraCount}/{cameraCount}</span>
         </div>
       </div>
       
