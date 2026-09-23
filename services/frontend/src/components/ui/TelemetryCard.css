@@ -1,0 +1,25 @@
+.telemetry-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 150px;
+}
+
+.telemetry-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-2);
+}
+
+.telemetry-card-title {
+  font-size: 11px;
+  color: var(--text-slate);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.telemetry-card-icon {
+  color: var(--accent-orange);
+  opacity: 0.8;
+}

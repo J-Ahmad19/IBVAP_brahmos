@@ -1,0 +1,72 @@
+.drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(5, 5, 5, 0.5);
+  backdrop-filter: blur(2px);
+  z-index: 900;
+}
+
+.drawer-content {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 400px;
+  background-color: var(--surface-color);
+  border-left: var(--border-thin);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -5px 0 30px rgba(0, 0, 0, 0.5);
+  animation: slideIn 0.3s ease forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-3);
+  border-bottom: var(--border-thin);
+}
+
+.drawer-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #FFF;
+  letter-spacing: 1px;
+}
+
+.drawer-close {
+  background: transparent;
+  border: none;
+  color: var(--text-slate);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.drawer-close:hover {
+  color: #FFF;
+}
+
+.drawer-body {
+  padding: var(--spacing-3);
+  overflow-y: auto;
+  flex: 1;
+}

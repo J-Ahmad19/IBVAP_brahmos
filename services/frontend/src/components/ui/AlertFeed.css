@@ -1,0 +1,35 @@
+.alert-feed-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  background: linear-gradient(to bottom, rgba(10, 10, 14, 0.8), rgba(6, 6, 8, 0.95));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.alert-feed-header-wrapper {
+  padding: var(--spacing-3) var(--spacing-3) var(--spacing-2) var(--spacing-3);
+  border-bottom: var(--border-thin);
+  background: transparent;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(8px);
+}
+
+.alert-feed-content {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Custom scrollbar for alert feed to match tech theme */
+.alert-feed-content::-webkit-scrollbar {
+  width: 4px;
+}
+.alert-feed-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}

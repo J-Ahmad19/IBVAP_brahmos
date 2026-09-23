@@ -2,11 +2,7 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-# Install system dependencies (needed for psycopg2 compilation if falling back, though binary is used)
-RUN apt-get update && apt-get install -y \
-    gcc \
-    libpq-dev \
-    && rm -rf /var/lib/apt/lists/*
+
 
 # Copy requirements and install
 COPY requirements.txt .

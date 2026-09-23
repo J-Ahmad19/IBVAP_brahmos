@@ -1,0 +1,36 @@
+.severity-badge {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.severity-badge.info {
+  background-color: rgba(143, 155, 179, 0.15);
+  color: var(--text-slate);
+  border: 1px solid rgba(143, 155, 179, 0.3);
+}
+
+.severity-badge.warning {
+  background-color: rgba(255, 184, 0, 0.15);
+  color: var(--accent-warning);
+  border: 1px solid rgba(255, 184, 0, 0.4);
+  box-shadow: 0 0 8px rgba(255, 184, 0, 0.2);
+}
+
+.severity-badge.critical {
+  background-color: rgba(255, 42, 95, 0.15);
+  color: #ff4d79;
+  border: 1px solid rgba(255, 42, 95, 0.5);
+  box-shadow: 0 0 10px rgba(255, 42, 95, 0.3);
+  animation: pulse-critical 2s infinite;
+}
+
+@keyframes pulse-critical {
+  0% { box-shadow: 0 0 5px rgba(255, 42, 95, 0.3); }
+  50% { box-shadow: 0 0 15px rgba(255, 42, 95, 0.6); }
+  100% { box-shadow: 0 0 5px rgba(255, 42, 95, 0.3); }
+}

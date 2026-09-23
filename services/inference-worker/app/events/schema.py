@@ -36,6 +36,7 @@ class Event(BaseModel):
     track_id: Optional[str] = None
     confidence: Optional[float] = Field(None, ge=0.0, le=1.0)
     severity: Severity = Field(default=Severity.INFO)
+    status: str = Field(default="NEW")
     media_ref: Optional[str] = None
     metadata: Dict[str, Any] = Field(default_factory=dict)
 

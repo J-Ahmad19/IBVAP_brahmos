@@ -1,0 +1,97 @@
+.telemetry-bar {
+  height: 48px;
+  background-color: var(--surface-color);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: var(--border-thin);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--spacing-3);
+  font-family: 'Space Grotesk', monospace;
+  font-size: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  z-index: 100;
+  position: relative;
+}
+
+.telemetry-group {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+.telemetry-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: opacity 0.2s;
+}
+
+.telemetry-item:hover {
+  opacity: 1;
+}
+
+.telemetry-item .label {
+  color: var(--text-slate);
+  opacity: 0.8;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.telemetry-item .value {
+  color: var(--text-bright);
+  font-weight: 600;
+}
+
+.telemetry-item .value.success {
+  color: #00ff88;
+  text-shadow: 0 0 8px rgba(0, 255, 136, 0.4);
+}
+
+.telemetry-item .value.warning {
+  color: var(--accent-warning);
+  text-shadow: 0 0 8px rgba(255, 184, 0, 0.4);
+}
+
+.telemetry-item .value.danger {
+  color: var(--primary-red);
+  text-shadow: 0 0 8px rgba(255, 42, 95, 0.4);
+}
+
+.telemetry-item .icon {
+  color: var(--text-slate);
+  opacity: 0.8;
+}
+
+.clock {
+  font-variant-numeric: tabular-nums;
+  color: var(--accent-orange);
+  text-shadow: 0 0 8px var(--accent-glow);
+  font-weight: 600;
+}
+
+.role-selector {
+  background-color: rgba(0, 210, 255, 0.05);
+  color: var(--accent-orange);
+  border: 1px solid rgba(0, 210, 255, 0.3);
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-family: 'Space Grotesk', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.role-selector:hover {
+  background-color: rgba(0, 210, 255, 0.15);
+  border-color: rgba(0, 210, 255, 0.6);
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.role-selector option {
+  background-color: var(--bg-color);
+  color: var(--text-bright);
+}

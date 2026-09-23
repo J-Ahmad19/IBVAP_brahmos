@@ -1,31 +1,31 @@
 version: '3.8'
 
 services:
-  postgres:
-    image: timescale/timescaledb:latest-pg15
-    container_name: ibvap-postgres
-    restart: unless-stopped
-    environment:
-      POSTGRES_USER: ${POSTGRES_USER:-ibvap}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-ibvap_secret}
-      POSTGRES_DB: ${POSTGRES_DB:-ibvap_db}
-    ports:
-      - "5432:5432"
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-ibvap}"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
+#   postgres:
+#     image: timescale/timescaledb:latest-pg15
+#     container_name: ibvap-postgres
+#     restart: unless-stopped
+#     environment:
+#       POSTGRES_USER: ${POSTGRES_USER:-ibvap}
+#       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-ibvap_secret}
+#       POSTGRES_DB: ${POSTGRES_DB:-ibvap_db}
+#     ports:
+#       - "5432:5432"
+#     volumes:
+#       - pgdata:/var/lib/postgresql/data
+#       - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+#     healthcheck:
+#       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-ibvap}"]
+#       interval: 10s
+#       timeout: 5s
+#       retries: 5
 
   redis:
     image: redis:7-alpine
     container_name: ibvap-redis
     restart: unless-stopped
     ports:
-      - "6379:6379"
+      - "6380:6379"
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       interval: 10s
@@ -48,7 +48,7 @@ services:
       retries: 5
 
   minio:
-    image: minio/minio:latest
+    image: quay.io/minio/minio:latest
     container_name: ibvap-minio
     restart: unless-stopped
     command: server /data --console-address ":9001"
@@ -67,7 +67,7 @@ services:
       retries: 5
 
   minio-create-bucket:
-    image: minio/mc:latest
+    image: quay.io/minio/mc:latest
     container_name: ibvap-minio-create-bucket
     depends_on:
       minio:
@@ -90,17 +90,13 @@ services:
     restart: unless-stopped
     ports:
       - "8000:8000"
-    environment:
-      - DATABASE_URL=postgresql+asyncpg://${POSTGRES_USER:-ibvap}:${POSTGRES_PASSWORD:-ibvap_secret}@postgres:5432/${POSTGRES_DB:-ibvap_db}
-    depends_on:
-      postgres:
-        condition: service_healthy
+    env_file:
+      - .env
     volumes:
       - ./services/api:/app
-      - ./alembic.ini:/app/alembic.ini
-      - ./db:/app/db
+      - ./services/inference-worker:/services/inference-worker
 
 volumes:
-  pgdata:
+#   pgdata:
   qdrant_data:
   minio_data:

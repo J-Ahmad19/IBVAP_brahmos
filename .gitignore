@@ -45,3 +45,10 @@ dist/
 *.swp
 .DS_Store
 .opencode/
+venv/
+*.mp4
+*.log
+__pycache__/
+.pytest_cache/
+node_modules/
+dist/

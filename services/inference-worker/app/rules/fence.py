@@ -1,5 +1,5 @@
 import numpy as np
-from typing import Tuple, List, Optional
+from typing import Tuple, List, Optional, Any
 from dataclasses import dataclass
 
 from app.events.schema import Event, EventType, Severity, EventFactory
@@ -97,3 +97,30 @@ class VirtualFenceRule:
                 )
                 
         return event, new_state
+
+class FenceRule:
+    """Wrapper around VirtualFenceRule to store state and handle evaluate(camera_id, track, features)."""
+    def __init__(self):
+        self.states = {}
+        # Mock polygon for testing
+        self.polygon = [(0, 0), (1280, 0), (1280, 720), (0, 720)]
+        
+    def evaluate(self, camera_id: str, track: Track, features: Any) -> List[Event]:
+        state_key = f"{camera_id}_{track.track_id}"
+        prev_state = self.states.get(state_key)
+        
+        foot_point = features.foot_point if features else ((track.bbox[0] + track.bbox[2])/2, track.bbox[3])
+        
+        event, new_state = VirtualFenceRule.evaluate(
+            camera_id=camera_id,
+            zone_name="mock_zone",
+            polygon=self.polygon,
+            direction="ANY",
+            debounce_frames=3,
+            track=track,
+            foot_point=foot_point,
+            prev_state=prev_state
+        )
+        
+        self.states[state_key] = new_state
+        return [event] if event else []

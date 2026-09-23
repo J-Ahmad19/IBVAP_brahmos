@@ -28,6 +28,7 @@ class Event(Base):
     track_id = Column(String(50))
     confidence = Column(Float)
     severity = Column(String(20), default='INFO', index=True)
+    status = Column(String(50), default='NEW')
     media_ref = Column(String)
     metadata_ = Column("metadata", JSON)  # metadata is a reserved word in SQLAlchemy Base
     created_at = Column(DateTime(timezone=True), server_default=func.now())

@@ -81,8 +81,7 @@ def upgrade() -> None:
     op.create_index(op.f('ix_events_timestamp'), 'events', ['timestamp'], unique=False)
     op.create_index(op.f('ix_events_type'), 'events', ['type'], unique=False)
 
-    # Create hypertable
-    op.execute("SELECT create_hypertable('events', by_range('timestamp'));")
+
 
     # 5. WatchlistEntries
     op.create_table('watchlist_entries',

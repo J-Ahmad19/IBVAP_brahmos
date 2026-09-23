@@ -1,0 +1,139 @@
+.alerts-page-container {
+  display: flex;
+  height: 100%;
+  gap: var(--spacing-3);
+  overflow: hidden;
+}
+
+.alerts-list-pane {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--surface-color);
+  backdrop-filter: blur(12px);
+  border: var(--border-thin);
+  border-radius: var(--radius-panel);
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.alerts-list-header {
+  padding: var(--spacing-3);
+  border-bottom: var(--border-thin);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.05), transparent);
+}
+
+.alerts-list-header h2 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-bright);
+}
+
+.alerts-feed {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* Re-use EventRow styling but tweak for selection */
+.alerts-feed .event-row.selected {
+  background-color: rgba(0, 210, 255, 0.1);
+  border-left: 3px solid var(--accent-orange);
+}
+
+.alerts-detail-pane {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  overflow-y: auto;
+}
+
+.alert-snapshot-card {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  background-color: #000;
+  border-radius: var(--radius-panel);
+  overflow: hidden;
+  border: var(--border-thin);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.alert-snapshot-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.alert-no-snapshot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0.02) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+  color: var(--text-slate);
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.alert-metadata-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-3);
+}
+
+.meta-box {
+  background-color: rgba(255, 255, 255, 0.02);
+  border: var(--border-thin);
+  padding: var(--spacing-2);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.meta-box label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-slate);
+  opacity: 0.8;
+  letter-spacing: 1px;
+}
+
+.meta-box .meta-val {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-bright);
+}
+
+.alert-actions-panel {
+  display: flex;
+  gap: var(--spacing-2);
+  margin-top: var(--spacing-2);
+}
+
+.alerts-empty-state {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: var(--text-slate);
+  opacity: 0.6;
+}

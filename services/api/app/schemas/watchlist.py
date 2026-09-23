@@ -23,3 +23,10 @@ class WatchlistEntry(WatchlistEntryBase):
     created_at: datetime
 
     model_config = ConfigDict(from_attributes=True)
+
+class FaceWatchlistResponse(WatchlistEntry):
+    """
+    Response model for face watchlist entries.
+    Explicitly does not contain the raw embedding vector.
+    """
+    pass

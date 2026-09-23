@@ -1,0 +1,68 @@
+.system-health-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  height: 100%;
+  overflow-y: auto;
+}
+
+.system-header-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--surface-color);
+  padding: var(--spacing-3);
+  border-radius: var(--radius-panel);
+  border: var(--border-thin);
+}
+
+.system-overall-status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: 1px;
+}
+
+.status-indicator {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px currentColor;
+}
+
+.telemetry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-3);
+  margin-bottom: var(--spacing-4);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--spacing-3);
+}
+
+.service-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-4);
+  gap: 8px;
+}
+
+.service-name {
+  font-size: 14px;
+  color: #FFF;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.service-status {
+  font-size: 11px;
+  font-weight: 700;
+  font-family: monospace;
+  letter-spacing: 2px;
+}

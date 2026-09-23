@@ -1,0 +1,37 @@
+.empty-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-4);
+  height: 100%;
+  width: 100%;
+}
+
+.empty-state-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.empty-state-lines {
+  flex: 1;
+  height: 1px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(183, 169, 142, 0.2),
+    rgba(183, 169, 142, 0.2) 2px,
+    transparent 2px,
+    transparent 6px
+  );
+}
+
+.empty-state-message {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-slate);
+  opacity: 0.5;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}

@@ -1,0 +1,75 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  padding: 8px 16px;
+  border-radius: 6px;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.btn-icon {
+  margin-right: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.primary-btn {
+  background-color: var(--primary-red);
+  color: #FFF;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 10px rgba(255, 42, 95, 0.2);
+}
+
+.primary-btn:hover:not(:disabled) {
+  background-color: #ff3a6f;
+  box-shadow: 0 6px 20px rgba(255, 42, 95, 0.5);
+  transform: translateY(-2px);
+}
+
+.primary-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.secondary-btn {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--text-slate);
+  border: var(--border-thin);
+}
+
+.secondary-btn:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-bright);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.pill-btn {
+  border-radius: 20px;
+  background-color: rgba(10, 10, 14, 0.6);
+  color: var(--text-slate);
+  border: var(--border-thin);
+  padding: 6px 16px;
+  font-size: 12px;
+  backdrop-filter: blur(4px);
+}
+
+.pill-btn:hover:not(:disabled) {
+  background-color: rgba(0, 210, 255, 0.1);
+  color: var(--accent-orange);
+  border-color: rgba(0, 210, 255, 0.4);
+  box-shadow: 0 4px 15px var(--accent-glow);
+  transform: translateY(-2px);
+}

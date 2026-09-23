@@ -1,0 +1,33 @@
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-4);
+  height: 100%;
+  width: 100%;
+  color: var(--text-slate);
+}
+
+.loading-state-icon {
+  margin-bottom: var(--spacing-2);
+  animation: spin 2s linear infinite;
+  color: var(--accent-orange);
+}
+
+.loading-state-message {
+  font-family: monospace;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  opacity: 0.8;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

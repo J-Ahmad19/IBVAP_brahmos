@@ -1,0 +1,14 @@
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-2);
+}
+
+.section-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-slate);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
